@@ -4,7 +4,7 @@
 In the container launch migration for creating database tables, run:
 ### `yarn run db:schema:migrate`
 
-In the project directory, you can run:
+And run the following command for starting server:
 
 ### `yarn dev`
 
