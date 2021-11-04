@@ -1,0 +1,10 @@
+{
+    "extends": "@tsconfig/node14",
+    "compilerOptions": {
+        "experimentalDecorators": true,
+        "resolveJsonModule": true,
+        // Output
+        "outDir": "./build",
+        "rootDir": "."
+    }
+}

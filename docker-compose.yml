@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:bullseye
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: memory_game
+    ports:
+      - 5433:5432
+    restart: on-failure
+
+  app:
+    image: node:14
+    command: yarn run dev
+    depends_on:
+      - db
+    environment:
+      HTTP_PORT: 5000
+
+      POSTGRES_HOST: db
+      POSTGRES_PORT: 5432
+      POSTGRES_USERNAME: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DATABASE: memory_game
+
+    ports:
+      - 5000:5000
+    working_dir: /workspace
+    volumes:
+      - .:/workspace:delegated
